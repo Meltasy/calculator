@@ -10,15 +10,19 @@ body {
 
 #calculator {
     border: 10px solid black;
-    padding: 10px;
+    padding: 5px;
 }
 
-input {
+#display {
+    background-color: lightgray;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
     height: 100px;
-    width: 580px;
-    font-size: 30px;
-    text-align: right;
     padding: 10px;
+    border: 2px solid gray;
 }
 
 #numberButtons {
@@ -26,10 +30,28 @@ input {
     flex-wrap: wrap;
     height: 500px;
     width: 600px;
+    padding-top: 5px;
 }
 
 button {
     height: 100px;
     width: 150px;
     font-size: 30px;
+}
+
+#operator,
+#equals {
+    background-color: #D4CB6A;
+}
+
+#operand,
+#positiveNegative,
+#decimal {
+    background-color: #8A458A;
+}
+
+#clearAll,
+#clearEntry,
+#percentage {
+    background-color: #8ABD5F;
 }
