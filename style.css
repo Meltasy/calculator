@@ -15,7 +15,7 @@ body {
 
 #display {
     background-color: lightgray;
-    font-size: 40px;
+    font-size: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
