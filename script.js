@@ -17,12 +17,52 @@ let sum = 0;
 displayDiv.textContent = 0;
 let errorMsg = "";
 
+document.addEventListener("keydown", (event) => {
+    console.log(event);
+    const operands = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const operators = ["+", "-", "*", "/", "%"]
+    if (operands.includes(event.key)) {
+        getOperand(event.key);
+    } else if (operators.includes(event.key)) {
+        getOperator(event.key);
+    } else if (event.key === "=" || event.key === "Enter") {
+        equals();
+    } else if (event.key === ".") {
+        decimal();
+    } else if (event.key === "Delete") {
+        clearAll();
+    } else if (event.key === "Backspace") {
+        clearEntry();
+    }
+});
+
 allOperands.forEach(operand => {
-    operand.addEventListener("click", getOperand);
+    operand.addEventListener("click", (e) => getOperand(e.target.value));
 });
 
 allOperators.forEach(operator => {
-    operator.addEventListener("click", getOperator);
+    operator.addEventListener("click", (e) => getOperator(e.target.value));
+});
+
+equalBtn.addEventListener("click", (e) => {
+    equals();
+});
+
+decimalBtn.addEventListener("click", (e) => {
+    decimal();
+});
+
+clearAllBtn.addEventListener("click", (e) => {
+    clearAll();
+});
+
+clearEntryBtn.addEventListener("click", (e) => {
+    clearEntry();
+});
+
+positiveNegativeBtn.addEventListener("click", (e) => {
+    currentNumber = currentNumber * -1;
+    updateDisplay(currentNumber);
 });
 
 function updateDisplay(number) {
@@ -61,50 +101,45 @@ function getTotal() {
     }
 }
 
-function getOperand(e) {
+function getOperand(value) {
     if (currentNumber > 10 ** (8 - decimalPlace)) {
         return;
     }
     if (decimalPlace === 0) {
-        currentNumber = 10 * currentNumber + parseInt(e.target.value);
+        currentNumber = 10 * currentNumber + parseInt(value);
     } else {
-        currentNumber = parseInt(e.target.value) / 10 ** decimalPlace + currentNumber;
+        currentNumber = parseInt(value) / 10 ** decimalPlace + currentNumber;
         decimalPlace++;
     }
     updateDisplay(currentNumber);
 }
 
-function getOperator(e) {
+function getOperator(value) {
     getTotal();
-    currentOperator = e.target.value;
+    currentOperator = value;
     currentNumber = 0;
     decimalPlace = 0;
 }
 
-equalBtn.addEventListener("click", (e) => {
+function equals() {
     getTotal();
     currentOperator = "+";
-});
+}
 
-decimalBtn.addEventListener("click", (e) => {
+function decimal() {
     if (decimalPlace === 0) {
         decimalPlace++;
     }
-});
+}
 
-positiveNegativeBtn.addEventListener("click", (e) => {
-    currentNumber = currentNumber * -1;
-    updateDisplay(currentNumber);
-});
-
-clearAllBtn.addEventListener("click", (e) => {
+function clearAll() {
     currentNumber = 0;
     currentResult = 0;
     currentOperator = "+";
     updateDisplay(currentResult);
-});
+}
 
-clearEntryBtn.addEventListener("click", (e) => {
+function clearEntry() {
     currentNumber = 0;
     updateDisplay();
-});
+}
