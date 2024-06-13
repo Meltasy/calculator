@@ -1,11 +1,11 @@
-const allOperands = document.querySelectorAll("#operand");
-const allOperators = document.querySelectorAll("#operator");
+const allOperands = document.querySelectorAll(".operand");
+const allOperators = document.querySelectorAll(".operator");
 
-let equalBtn = document.querySelector("#equals");
-let decimalBtn = document.querySelector("#decimal");
-let positiveNegativeBtn = document.querySelector("#positiveNegative");
-let clearAllBtn = document.querySelector("#clearAll");
-let clearEntryBtn = document.querySelector("#clearEntry");
+let equalBtn = document.querySelector(".equals");
+let decimalBtn = document.querySelector(".decimal");
+let positiveNegativeBtn = document.querySelector(".positiveNegative");
+let clearAllBtn = document.querySelector(".clearAll");
+let clearEntryBtn = document.querySelector(".clearEntry");
 
 let displayDiv = document.querySelector("#display");
 

@@ -40,19 +40,19 @@ button {
     font-size: 30px;
 }
 
-#operator,
-#equals {
+.operator,
+.equals {
     background-color: #D4CB6A;
 }
 
-#operand,
-#positiveNegative,
-#decimal {
+.operand,
+.positiveNegative,
+.decimal {
     background-color: #8A458A;
 }
 
-#clearAll,
-#clearEntry,
-#percentage {
+.clearAll,
+.clearEntry,
+.percentage {
     background-color: #8ABD5F;
 }
